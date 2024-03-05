@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inicio</title>
+    </head>
+    <body>
+        <h1>Hola Mundo con Spring</h1>
+        <p th:text="${p1}"></p>
+        <br>
+        <div th:if="${personas != null and !personas.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                </tr>
+                <tr th:each="persona: ${personas}">
+                    <td th:text="${persona.nombre}">Nombre</td>
+                    <td th:text="${persona.apellido}">Nombre</td>
+                    <td th:text="${persona.telefono}">Nombre</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            <p>La lista de personas esta vacia</p>
+        </div>
+
+    </body>
+</html>
